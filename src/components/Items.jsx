@@ -1,23 +1,15 @@
 import React from 'react';
 import data from './../data';
+import SingleItem from './SingleItem';
 const Items = () => {
 	return (
 		<section className='section-center'>
 			{data.map((item) => {
 				return (
-					<article
+					<SingleItem
 						key={item.id}
-						className='menu-item'>
-						<img
-							src={item.img}
-							className='img'
-							alt={item.title}
-						/>
-						<section className='menu-info'>
-							<header>{item.title}</header>
-							<p className='item-text'>{item.desc}</p>
-						</section>
-					</article>
+						{...item}
+					/>
 				);
 			})}
 		</section>

@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Title = () => {
-	return <section className='title'>Our Menu</section>;
+	return (
+		<section className='title'>
+			<h2>Our Menu</h2>
+		</section>
+	);
 };
 
 export default Title;
