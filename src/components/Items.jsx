@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import data from './../data';
 import SingleItem from './SingleItem';
-const Items = () => {
+const Items = (props) => {
 	return (
 		<section className='section-center'>
-			{data.map((item) => {
-				return (
-					<SingleItem
-						key={item.id}
-						{...item}
-					/>
-				);
-			})}
+			{data
+				.filter((filteredItem) =>
+					props.category
+						? filteredItem.category === props.category
+						: filteredItem.id > 0
+				)
+				.map((item) => {
+					return (
+						<SingleItem
+							key={item.id}
+							{...item}
+						/>
+					);
+				})}
 		</section>
 	);
 };
