@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import data from './../data';
+
 import SingleItem from './SingleItem';
-const Items = (props) => {
+const Items = ({ data, categoryStateData }) => {
 	return (
 		<section className='section-center'>
 			{data
+				//checking the user selectedFilters
 				.filter((filteredItem) =>
-					props.category
-						? filteredItem.category === props.category
-						: filteredItem.id > 0
+					categoryStateData ? filteredItem.category === categoryStateData : true
 				)
+				//mapping all the Items from list of filtered
 				.map((item) => {
 					return (
 						<SingleItem
